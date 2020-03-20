@@ -1,0 +1,10 @@
+LeBron James,0.0
+James Harden,0.0
+Damian Lillard,0.0
+Bradley Beal,0.0
+LaMarcus Aldridge,0.0
+Luka Dončić,0.0
+Jimmy Butler,0.0
+Rudy Gobert,0.0
+Giannis Antetokounmpo,0.0
+Kemba Walker,0.0
