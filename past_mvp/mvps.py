@@ -54,11 +54,12 @@ for df_index, df_player in df.iterrows():
   
 ##--------------GETTING THE NUMBER OF WINS FOR EACH PLAYER FOR THEIR RESPECTIVE SEASOSN
 
-
-
 for index, player in df.iterrows():
-    df_temp = pd.DataFrame(client.regular_season_player_box_scores(player_identifier=player['id'], season_end_year=player['Season'][:4]))
+    year_mvp = player['Season'][:4]
+    year_mvp = int(year_mvp) +1
     win_counter = 0
+
+    df_temp = pd.DataFrame(client.regular_season_player_box_scores(player_identifier=player['id'], season_end_year=(year_mvp)))
     
     for index2, player2 in df_temp.iterrows():
         if player2['outcome'].value == 'WIN':
@@ -67,6 +68,4 @@ for index, player in df.iterrows():
     print(player['Player'], ' supposed to have win ->', win_counter)
     player['Wins'] = win_counter
 
-print(df.head(10))
-
-#this gets MVPS players and their respective years WHICH THEY WON MVPS
+print(df)
