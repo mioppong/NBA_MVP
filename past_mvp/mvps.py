@@ -5,6 +5,7 @@ from pprint import pprint
 import numpy as np
 from basketball_reference_web_scraper import client
 import datetime
+import matplotlib.pyplot as plt
 
 #--------------SCRAPING THE LIST OF ALLSTARS FROM LINK BELOW--------------#--------------#--------------
 URL = 'https://www.basketball-reference.com/awards/mvp.html'
@@ -65,7 +66,13 @@ for index, player in df.iterrows():
         if player2['outcome'].value == 'WIN':
             win_counter = win_counter + 1
 
-    print(player['Player'], ' supposed to have win ->', win_counter)
+    #print(player['Player'], ' supposed to have win ->', win_counter)
     player['Wins'] = win_counter
 
+df['WS']  =df['WS'].astype(float)
+df['Wins'] = df['Wins'].astype(float)
+df['my_calc'] = round(df['WS'] / df['Wins'],2)
+    
+#df.plot(x = 'my_calc', y='my_calc',kind='scatter')
+#plt.show()
 print(df)
