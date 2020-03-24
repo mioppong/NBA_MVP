@@ -33,10 +33,16 @@ df = df[['Season', 'Player','WS']]
 df['id'] = ""
 df['Wins'] = ""
 
+#--------this dataframe contains the regular players
+df_regular = pd.DataFrame()
+
 #--------------ADDING THE ID OF EACH PLAYER TO THE DATAFRAME#--------------
 
 #--------------GETTING ALL NBA PLAYERS OF THE CURRENT SEASON, 
 #--------------GETTING THEIR ID, AND ADDING IT TO THE DATA FRAME OF MVPS
+#df2 contains season totals
+#df contains mvps
+
 for x in (client.players_season_totals(season_end_year=current_year)):
     df2 = df2.append(pd.DataFrame(x), ignore_index=True)
 
@@ -44,6 +50,7 @@ for df_index, df_player in df.iterrows():
     for df2_index, df2_player in df2.iterrows():
         if df_player['Player'] == df2_player['name']:
              df_player['id'] = df2_player['slug']
+        
 
 for x in (client.players_season_totals(season_end_year=current_year-1)):
     df2 = df2.append(pd.DataFrame(x), ignore_index=True)
@@ -75,4 +82,42 @@ df['my_calc'] = round(df['WS'] / df['Wins'],2)
     
 #df.plot(x = 'my_calc', y='my_calc',kind='scatter')
 #plt.show()
+
+
+##--------------\\\GETTING REGULAR SEASON PLAYERS AND THEIR WINSHARES
+
+
+
+
+df_season = pd.DataFrame()
+for x in (client.players_advanced_season_totals(season_end_year=2020)):
+    df_season = df_season.append(pd.DataFrame(x), ignore_index=True)
+
+df_season = df_season.head(100)
+df_season['Wins'] = ""
+
+df_regular_players = pd.DataFrame()
+df_regular_players['name'] = ""
+df_regular_players['slug'] = ""
+df_regular_players['wins'] = ""
+df_regular_players['WS'] = ""
+
+for x,player in df_season.iterrows():
+    win_counter = 0
+    df_temp = pd.DataFrame(client.regular_season_player_box_scores(player_identifier=player['slug'],season_end_year=2020))
+
+    for index, outcome in df_temp.iterrows():
+        if (outcome['outcome'].value) == "WIN":
+            win_counter = win_counter +1
+    
+    df_regular_players = df_regular_players.append({'name':player['name'],'slug':player['slug'],'wins':win_counter, 'WS':player['win_shares']},ignore_index=True)
+    print(player['name'],'nickname is', player['slug'], 'had x wins', str(win_counter), player['win_shares'])
+
+
+
+print("THIS IS THE REGULAR PLAYERS")
+print(df_regular_players)
+
+
+print("THIS IS THE MVP PLAYERS")
 print(df)
