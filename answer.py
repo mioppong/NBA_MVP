@@ -9,7 +9,10 @@ import matplotlib.pyplot as plt
 
 #---------GETTING THE CURRENT YEAR, IT CHANGES AS THE YEARS GO BY
 now = datetime.datetime.now()
-current_year = now.year
+if(now.month >= 10):
+    current_year = now.year +1
+else:
+    current_year = now.year
 #---------GETTING THE CURRENT YEAR, IT CHANGES AS THE YEARS GO BY
 
 df_players = pd.DataFrame()
