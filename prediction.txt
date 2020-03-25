@@ -1,10 +1,20 @@
-LeBron James\jamesle01	0.2
-James Harden\hardeja01	0.34
-Damian Lillard\lillada01	0.33
-Bradley Beal\bealbr01	0.23
-LaMarcus Aldridge\aldrila01	0.2
-Luka Dončić\doncilu01	0.27
-Jimmy Butler\butleji01	0.2
-Rudy Gobert\goberru01	0.23
-Giannis Antetokounmpo\antetgi01	0.232
-Kemba Walker\walkeke02	0.261538
+James Harden
+Giannis Antetokounmpo
+Anthony Davis
+Rudy Gobert
+Nikola Jokić
+Jimmy Butler
+Luka Dončić
+Hassan Whiteside
+Domantas Sabonis
+Jarrett Allen
+Ben Simmons
+Mitchell Robinson
+Jonas Valančiūnas
+DeMar DeRozan
+Devin Booker
+Trae Young
+Nikola Vučević
+Bradley Beal
+Christian Wood
+Clint Capela
