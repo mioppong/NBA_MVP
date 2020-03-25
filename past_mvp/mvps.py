@@ -61,7 +61,6 @@ for df_index, df_player in df.iterrows():
              df_player['id'] = df2_player['slug']
   
 ##--------------GETTING THE NUMBER OF WINS FOR EACH PLAYER FOR THEIR RESPECTIVE SEASOSN
-
 for index, player in df.iterrows():
     year_mvp = player['Season'][:4]
     year_mvp = int(year_mvp) +1
@@ -77,13 +76,8 @@ for index, player in df.iterrows():
 df['WS']  =df['WS'].astype(float)
 df['Wins'] = df['Wins'].astype(float)
 df['my_calc'] = round(df['WS'] / df['Wins'],2)
-    
-#df.plot(x = 'my_calc', y='my_calc',kind='scatter')
-#plt.show()
-
 
 ##--------------\\\GETTING REGULAR SEASON PLAYERS AND THEIR WINSHARES
-
 df_season = pd.DataFrame()
 for x in (client.players_advanced_season_totals(season_end_year=current_year)):
     df_season = df_season.append(pd.DataFrame(x), ignore_index=True)
