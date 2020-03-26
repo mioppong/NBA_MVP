@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/Users/oppong/Desktop/LIFE/Github/NBA_MVP/ENV'
+VIRTUAL_ENV='/Users/oppong/Desktop/test_python_files/ENV'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
