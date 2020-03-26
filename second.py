@@ -30,7 +30,7 @@ df = pd.DataFrame(streamed_dict)
 style.use('fivethirtyeight')
 fig  = plt.figure()
 fig.suptitle('Players with potential to win MVP', fontsize=14, fontweight='bold')
-ax1 = fig.add_subplot(1,1,1)
+ax1 = fig.add_subplot()
 ax1.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 
 
@@ -57,10 +57,9 @@ class MyStreamListener(tweepy.StreamListener):
 
 def animate(i):
     ax1.cla()
-    ax1.plot(list(streamed_dict.values()),list(streamed_dict.keys()))
     ax1.set_ylabel('MVP candidates (based on my algirithm) for')
-
-    #ax1.set_ylabel("y axis",fontsize=0.5)
+    ax1.set_ylabel("y axis",fontsize=0.5)
+    ax1.plot(list(streamed_dict.values()),list(streamed_dict.keys()))
 
 my_stream_listener = MyStreamListener()
 
