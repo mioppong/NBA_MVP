@@ -12,7 +12,6 @@ import os
 import config
 import pandas as pd
 import sys
-import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
 from matplotlib.ticker import FormatStrFormatter
@@ -57,7 +56,7 @@ class MyStreamListener(tweepy.StreamListener):
 
 def animate(i):
     ax1.cla()
-    ax1.set_ylabel('MVP candidates (based on my algirithm) for')
+    plt.tight_layout()
     ax1.set_ylabel("y axis",fontsize=0.5)
     ax1.plot(list(streamed_dict.values()),list(streamed_dict.keys()))
 
