@@ -4,7 +4,7 @@ This is a project about predicting the MVP for the 2019-2020 mvp, based on past 
 ## Getting Started
  
  You will need to install virtualenv. Use link below to install
- you will also need to get a 
+ you will also to get certain credentials from twitter
 
 - api key
 - api secret
